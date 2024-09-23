@@ -1,8 +1,8 @@
 {
-  "name": "react-custom-scroll",
+  "name": "@sokolovv-39/react-custom-scroll",
   "version": "0.0.1",
   "description": "Simple, user-friendly, cross-platform and adaptive scrolling. Customize as you want, use a lot of flexible settings and enjoy the pleasant UI/UX of a custom scroll",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"No tests specified\""
   },
@@ -13,11 +13,11 @@
   "keywords": [
     "scroll",
     "react",
+    "UI/UX",
     "adaptive",
-    "cross-platform",
-    "UI/UX"
+    "cross-platform"
   ],
-  "author": "sokolovv-39",
+  "author": "@sokolovv-39",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sokolovv-39/react-custom-scroll/issues"
