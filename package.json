@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"No tests specified\""
   },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sokolovv-39/react-custom-scroll.git"
