@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc && copyfiles -u 1 src/**/*.css dist/ && copyfiles -u 1 src/**/*.d.ts dist/",
     "test": "echo \"No tests specified\""
   },
   "peerDependencies": {
@@ -32,6 +33,6 @@
     "@types/node": "^22.7.3",
     "@types/react": "^18.3.9",
     "@types/react-dom": "^18.3.0",
-    "typed-css-modules": "^0.9.1"
+    "copyfiles": "^2.4.1"
   }
 }

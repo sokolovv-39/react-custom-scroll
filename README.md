@@ -47,11 +47,17 @@ export function MyComp() {
 }
 ```
 
-Then, add to parent element `overflow: hidden`
+Then, add to parent element `overflow: hidden` and `width: max-content` to children
 
 ```scss MyComp.module.scss
 .parentWrapper {
   overflow: hidden;
+}
+```
+
+```scss MyComp.module.scss
+.childrenWrapper {
+  width: max-content;
 }
 ```
 
@@ -79,7 +85,9 @@ style={{
 }}
 ```
 
-to you childrenWrapper.
+to your childrenWrapper.
+
+**You need add `width: max-content` to your childrenRef element** because it should be equal to the width of scrollable content
 
 `<CustomScroll/>` accepts 4 required props - `ancestorRef`, `childrenRef`, `scrollLength` and `setTranslate`.
 

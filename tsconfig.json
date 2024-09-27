@@ -4,7 +4,7 @@
     "module": "ESNext",
     "jsx": "react-jsx",
     "strict": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true,  
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
@@ -12,6 +12,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/cssDeclaration.d.ts"],
   "exclude": ["node_modules", "dist"]
 }
