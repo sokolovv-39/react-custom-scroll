@@ -69,10 +69,14 @@ Congratulations🥳! You got a beautiful custom scroll with default styles🌟�
 
 You need to import `useScrollSetup` hook, adding **<Parent_HTML_Element_Type, Children_HTML_Element_Type>** to generic. Then, import `<CustomScroll/>` component.
 
-<div style="border: 2px solid #d62828; background-color: #b22222; color: white; padding: 10px; border-radius: 5px;">
+<!-- <div style="border: 2px solid #d62828; background-color: #b22222; color: white; padding: 10px; border-radius: 5px;">
   &#9888;&#65039; <strong>Warning.</strong>
   You can place <code>&lt;CustomScroll/&gt;</code> wherever you want, but not inside childrenRef element. Otherwise, you'll end up with endlessly growing recursive errors in the browser console.
-</div>
+</div> -->
+
+> ❗️Error
+>
+> You can place `<CustomScroll/>` wherever you want, but not inside `childrenRef` element. Otherwise, you'll end up with endlessly growing recursive errors in the browser console
 
 <br/>
 
@@ -97,9 +101,13 @@ to your childrenWrapper.
 
 Sensitivity is indicated by only one parameter - an essential property `scrollLength`. It's defined in pixels, and literally mean the length of scroll.
 
-<div style="border: 2px solid #2a9d8f; background-color: #1a6f5c; color: white; padding: 10px; border-radius: 5px;">
+<!-- <div style="border: 2px solid #2a9d8f; background-color: #1a6f5c; color: white; padding: 10px; border-radius: 5px;">
 👍 Setting <code>scrollLength</code> prop, scrolling speed and sensitivity will adjust to the length automatically
-</div>
+</div> -->
+
+> 👍Success
+>
+> Setting `scrollLength` prop, scrolling speed and sensitivity will adjust to the length automatically
 
 ## Default behaviour
 
@@ -118,7 +126,7 @@ By default, scroll works like this:
 
 ## `<CustomScroll/>`
 
-## Props
+### Props
 
 ### `ancestorRef`
 
