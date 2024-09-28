@@ -1,6 +1,6 @@
 "use client";
 
-import {
+import React, {
   CSSProperties,
   Dispatch,
   SetStateAction,
@@ -22,6 +22,7 @@ export function CustomScroll({
     draggable: true,
     showGrabCursor: true,
   },
+  children,
 }: {
   setTranslate: Dispatch<SetStateAction<number>>;
   ancestorRef: HTMLElement | null;
@@ -37,6 +38,7 @@ export function CustomScroll({
     draggable: boolean;
     showGrabCursor?: boolean;
   };
+  children?: React.ReactNode;
 }) {
   const isDragging = useRef(false);
   const [isDraggingReactive, setIsDraggingReactive] = useState(false);
@@ -603,8 +605,8 @@ export function CustomScroll({
   });
 
   const wrapperElStyles: CSSProperties = {
-    width: direction === "horizontal" ? "100%" : "4px",
-    height: direction === "horizontal" ? "4px" : "100%",
+    width: direction === "horizontal" ? "100%" : "max-content",
+    height: direction === "horizontal" ? "max-content" : "100%",
     padding: direction === "horizontal" ? "8px 0 0 0" : "0 4px 0 0",
     ...styles?.wrapper,
   };
@@ -620,6 +622,14 @@ export function CustomScroll({
     }(${translateReactive}px)`,
   };
 
+  const customLayoutStyle: CSSProperties = {
+    transform: `${
+      direction === "horizontal" ? "translateX" : "translateY"
+    }(${translateReactive}px)`,
+    width: direction === "horizontal" ? `${scrollLength}px` : "",
+    height: direction === "horizontal" ? "" : `${scrollLength}px`,
+  };
+
   return (
     <>
       <div
@@ -630,11 +640,17 @@ export function CustomScroll({
         onClick={moveToClick}
         style={wrapperElStyles}
       >
-        <div
-          ref={scrollEl}
-          className={classes.scroll}
-          style={scrollElStyles}
-        ></div>
+        {children ? (
+          <div ref={scrollEl} style={customLayoutStyle}>
+            {children}
+          </div>
+        ) : (
+          <div
+            ref={scrollEl}
+            className={classes.scroll}
+            style={scrollElStyles}
+          ></div>
+        )}
       </div>
     </>
   );
