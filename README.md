@@ -65,9 +65,11 @@ Then, add to parent element `overflow: hidden` and `width: max-content` to child
 
 Congratulations🥳! You got a beautiful custom scroll with default styles🌟🎨
 
+![Default scroll](/assets/images/default%20scroll.png)
+
 ## Explanation
 
-You need to import `useScrollSetup` hook, adding **<Parent_HTML_Element_Type, Children_HTML_Element_Type>** to generic. Then, import `<CustomScroll/>` component.
+You need to import `useScrollSetup` hook, adding **<Parent_HTML_Element_Type, Children_HTML_Element_Type>** to generic (just skip this in pure javascript). Then, import `<CustomScroll/>` component.
 
 <!-- <div style="border: 2px solid #d62828; background-color: #b22222; color: white; padding: 10px; border-radius: 5px;">
   &#9888;&#65039; <strong>Warning.</strong>
@@ -113,14 +115,42 @@ Sensitivity is indicated by only one parameter - an essential property `scrollLe
 
 By default, scroll works like this:
 
-- Enabled scrolls: wheel, drag, drag the scroll by pressing the left mouse button, swipe in mobile devices. You can disable dragging by `drag` prop. Other mechanics сan't be disabled.
+- Enabled scrolls: wheel, drag, drag the scroll by pressing the left mouse button, swipe in mobile devices. You can disable dragging by `drag` prop. Other mechanics сan't be disabled
 - Scroll is always visible, you can change this by `visible` prop
 - `cursor: grab` on children element, and `grabbing` while you grab
   - You can safely set any cursor value on childrenElement or inner elements, and it'll work correctly. For example,
     set `cursor: pointer` to <code>&lt;Card/&gt;</code> element. Then, between <code>&lt;Card/&gt;</code>s cursor'll be `grab`, and while dragging cursor'll be `grabbing` even over <code>&lt;Card/&gt;</code>.
-    You can change this behaviour by `drag` prop.
-- Default scroll styles is like in [Styles API Reference](#styles). You can change this by `styles` prop. The flexibility of styling will be improved in the future.
+    You can change this behaviour by `drag` prop
+- Default scroll styles is like in [Styles API Reference](#styles). You can change this by `styles` prop
 - `direction="horizontal"`
+
+## Full customization
+
+`<CustomScroll/>` can accept option prop `children`. For example, let's replace our boring scroll to porsche
+
+```tsx
+<CustomScroll
+  ancestorRef={ancestorRef.current}
+  childrenRef={childrenRef.current}
+  scrollLength={276}
+  setTranslate={setTranslateX}
+  styles={{
+    wrapper: {
+      transform: "translateY(-40px)", // Unnecessary, added for beauty
+    },
+  }}
+>
+  <Image src={PorscheImg} alt="" />
+</CustomScroll>
+```
+
+![Porsche scroll](/assets/images/porsсhe%20scroll.png)
+
+You can add any layout as children as you want.
+
+> 🚧Warning
+>
+> You still need to pass the required `scrollLength` prop, and its width must match your layout to work correctly
 
 # API
 
@@ -216,6 +246,10 @@ You can add all styles as you want to this objects. In future, it is planned to 
 ```
 
 for scroll.
+
+### `children`
+
+See [Full customization](#full-customization) section.
 
 ## `useCustomScroll` hook
 
